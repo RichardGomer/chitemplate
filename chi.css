@@ -1,0 +1,241 @@
+html
+{
+margin: 0;
+padding: 0;
+}
+
+@page
+{
+	size: 18.5cm 23.5cm;
+}
+
+/**
+ * Reset elements
+ */
+p
+{
+margin: 0;
+padding: 0;
+}
+
+/**
+ * Main Heading
+ * 
+ */
+h1
+{
+width: 	17.8cm;
+margin: 0 auto 0 auto;
+font-family: Helvetica, Arial, Sans-serif;
+font-size: 18pt;
+font-weight: bold;
+}
+
+#authors
+{
+margin: 10pt 0 10pt auto;
+font-size: 12pt;
+font-family: Times Roman, Times, Press, Times New Roman, Serif;
+display: table;
+width: 100%;
+}
+
+	#authorsinner
+	{
+	display: table-row;
+	}
+
+	.author
+	{
+	display: table-cell;
+	text-align: center;
+	}
+	
+		.author p
+		{
+		margin: 0;
+		}
+
+	.name
+	{
+	font-weight: bold;
+	}
+	
+	
+
+
+/**
+ * Main article
+ * 2 columns
+ * 
+ */
+#body
+{
+		-moz-columns: 2;
+		-moz-column-gap: 0.85cm;
+		clear: both;
+		width: 18cm;
+		font-size: 10pt;
+		line-height: 1.2em;
+		text-align: justify;
+}
+
+	#body p
+	{
+		margin: 0 0 0.21cm 0;
+	}
+	
+	/**
+	 * Add classes to paragraphs to break the column/page before them
+	 */
+	#body p.colbreak
+	{
+		-moz-break-before: column;
+	}
+	
+	#body p.pagebreak
+	{
+		-moz-break-before: page;
+	}
+	
+	/**
+	 * Special/Mandatory sections
+	 * See heading styles for other style rules that apply to generated headings
+	 */
+	#abstract
+	{
+	
+	}
+	
+		#abstract:before
+		{
+		content: "Abstract";
+		}
+	 
+	#authorkeywords
+	{
+	text-align: left;
+	}
+	
+		#authorkeywords:before
+		{
+		content: "Author Keywords";
+		}
+	
+	#acmkeywords
+	{
+	text-align: left;
+	}
+	
+		#acmkeywords:before
+		{
+		content: "ACM Keywords";
+		}
+	
+	#terms
+	{
+	text-align: left;
+	}
+	
+		#terms:before
+		{
+		content: "General Terms";
+		}
+	
+	/**
+	 * Headings
+	 */
+	 
+	h2, #abstract:before
+	{
+		display: block;
+		
+		font-family: Helvetica, Arial, Sans-serif;
+		font-size: 9pt;
+		font-weight: bold;
+		
+		margin: 0.21cm 0 0 0;
+		padding: 0;
+
+		text-transform: uppercase;
+	}
+	
+	h3, #authorkeywords:before, #acmkeywords:before, #terms:before
+	{
+		display: block;
+		font-family: Helvetica, Arial, Sans-serif;
+		font-size: 9pt;
+		font-weight: bold;
+		text-transform: capitalize;
+		
+		margin: 0.21cm 0 0 0;
+		padding: 0;
+	}
+	
+
+/**
+ * Refs
+ *
+ * List styling based on: http://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/
+ */
+ol#refs
+{
+	text-align: left; /* Refs are not justified */
+	
+	counter-reset: li;
+	margin: 0;
+	padding: 0;	
+	
+	list-style-type: none;
+}
+
+	ol#refs > li
+	{
+		position:relative; /* Create a positioning context */
+	    margin:0 0 2pt 2em; /* Make room for numbers */
+	    padding: 0;
+	    min-height: 9pt;
+	}
+	
+	ol > li:before
+	{
+    	position: absolute;
+    	left: -2em;
+    	top: 0;
+    	
+    	content: counter(li) "."; /* Use the counter as content */
+   		counter-increment: li; /* Increment the counter by 1 */
+
+   		font-weight: normal;
+	}
+
+/**
+ * Print-only rendering
+ *
+ * These are mostly to tweak pagination
+ */
+@media print
+{
+
+
+	
+}
+
+/**
+ * Screen-only rendering
+ *
+ * These are mostly to simulate page constraints
+ */
+@media screen
+{
+
+	/**
+	 * Simulate page constraint on width
+	 */
+	body
+	{
+		width: 18cm;
+		margin: 20px auto 20px auto;
+	}
+	
+}
