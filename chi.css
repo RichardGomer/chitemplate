@@ -31,6 +31,9 @@ font-size: 18pt;
 font-weight: bold;
 }
 
+/**
+ * Authors & Affiliations
+ */
 #authors
 {
 margin: 10pt 0 10pt auto;
@@ -71,8 +74,6 @@ width: 100%;
  */
 #body
 {
-		-moz-columns: 2;
-		-moz-column-gap: 0.85cm;
 		clear: both;
 		width: 18cm;
 		font-size: 10pt;
@@ -80,97 +81,176 @@ width: 100%;
 		text-align: justify;
 }
 
-	#body p
-	{
-		margin: 0 0 0.21cm 0;
-	}
-	
-	/**
-	 * Add classes to paragraphs to break the column/page before them
-	 */
-	#body p.colbreak
-	{
-		-moz-break-before: column;
-	}
-	
-	#body p.pagebreak
-	{
-		-moz-break-before: page;
-	}
-	
-	/**
-	 * Special/Mandatory sections
-	 * See heading styles for other style rules that apply to generated headings
-	 */
-	#abstract
-	{
-	
-	}
-	
-		#abstract:before
-		{
-		content: "Abstract";
-		}
-	 
-	#authorkeywords
-	{
-	text-align: left;
-	}
-	
-		#authorkeywords:before
-		{
-		content: "Author Keywords";
-		}
-	
-	#acmkeywords
-	{
-	text-align: left;
-	}
-	
-		#acmkeywords:before
-		{
-		content: "ACM Keywords";
-		}
-	
-	#terms
-	{
-	text-align: left;
-	}
-	
-		#terms:before
-		{
-		content: "General Terms";
-		}
-	
-	/**
-	 * Headings
-	 */
-	 
-	h2, #abstract:before
-	{
-		display: block;
-		
-		font-family: Helvetica, Arial, Sans-serif;
-		font-size: 9pt;
-		font-weight: bold;
-		
-		margin: 0.21cm 0 0 0;
-		padding: 0;
+#body p
+{
+	margin: 0 0 0.21cm 0;
+}
 
-		text-transform: uppercase;
+/**
+ * Add classes to paragraphs to break the column/page before them
+ */
+#body p.colbreak
+{
+	-moz-break-before: column;
+}
+
+#body p.pagebreak
+{
+	-moz-break-before: page;
+}
+
+ 
+/**
+ * Special/Mandatory sections
+ * See heading styles for other style rules that apply to generated headings
+ */
+#abstract
+{
+
+}
+
+	#abstract:before
+	{
+	content: "Abstract";
+	}
+ 
+#authorkeywords
+{
+text-align: left;
+}
+
+	#authorkeywords:before
+	{
+	content: "Author Keywords";
+	}
+
+#acmkeywords
+{
+text-align: left;
+}
+
+	#acmkeywords:before
+	{
+	content: "ACM Keywords";
+	}
+
+#terms
+{
+text-align: left;
+}
+
+	#terms:before
+	{
+	content: "General Terms";
+	}
+
+/**
+ * Headings
+ */
+ 
+h2, #abstract:before
+{
+	display: block;
+	
+	font-family: Helvetica, Arial, Sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	
+	margin: 0.21cm 0 0 0;
+	padding: 0;
+
+	text-transform: uppercase;
+}
+
+h3, #authorkeywords:before, #acmkeywords:before, #terms:before
+{
+	display: block;
+	font-family: Helvetica, Arial, Sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	text-transform: capitalize;
+	
+	margin: 0.21cm 0 0 0;
+	padding: 0;
+}
+
+h4
+{
+	display: block;
+	font-family: Helvetica, Arial, Sans-serif;
+	font-size: 9pt;
+	font-style: italic;
+	font-weight: normal;
+	text-transform: capitalize;
+	
+	margin: 0.21cm 0 0 0;
+	padding: 0;
+}
+
+/**
+ * Figures / Tables
+ */ 
+.figure
+{
+	margin: 0.21cm auto 0.21cm auto;
+	counter-increment: figs;
+	text-align: center;
+}
+
+	.figure:after
+	{
+	display: block;
+	content: "Figure " counter(figs) ": " attr(title);
+	font-weight: bold;
+	font-size: 10pt;
 	}
 	
-	h3, #authorkeywords:before, #acmkeywords:before, #terms:before
+.table
+{
+	margin: 0.21cm auto 0.21cm auto;
+	counter-increment: tables;
+	text-align: center;
+}
+
+	.table:after
 	{
-		display: block;
-		font-family: Helvetica, Arial, Sans-serif;
-		font-size: 9pt;
-		font-weight: bold;
-		text-transform: capitalize;
-		
-		margin: 0.21cm 0 0 0;
-		padding: 0;
+	display: block;
+	content: "Table " counter(tables) ": " attr(title);
+	font-weight: bold;
+	font-size: 10pt;
 	}
+	
+	.table table
+	{
+	margin: 0 auto 0 auto;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	border-spacing: 0;
+	}
+	
+	.table td
+	{
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	padding: 0 2pt 0 2pt;
+	}
+	
+	.table table thead, .table table tr td:nth-of-type(1)
+	{
+	font-weight: bold;
+	}
+	
+	.table table tfoot
+	{
+	display: none;
+	}
+	
+.double
+{
+	float: left;
+	width: 18cm;
+	column-span: all; /* not currently supported in Fx */
+}
 	
 
 /**
@@ -209,16 +289,36 @@ ol#refs
    		font-weight: normal;
 	}
 
+#copyright
+{
+	font-size: 8pt;
+	margin: 10pt 0 0 0;
+}
+
 /**
  * Print-only rendering
  *
  * These are mostly to tweak pagination
+ *
+ * @page rules are supported in Firefox 19
  */
 @media print
 {
+	@page:first
+	{
+		margin-bottom: 3cm;
+	}
 
-
+	@page
+	{
+		margin: 1.9cm auto 1cm auto;
+	}
 	
+	#body
+	{
+		-moz-columns: 2;
+		-moz-column-gap: 0.85cm;
+	}
 }
 
 /**
