@@ -1,7 +1,9 @@
 SIGCHI HTML/CSS Template
 ========================
 
-An attempt at implementing the SIGCHI paper template in HTML & Css.
+An attempt at implementing the SIGCHI paper template in HTML & CSS.
+
+Because it has to be less painful than doing it in Word...
 
 Implemented
 -----------
